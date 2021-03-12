@@ -25,7 +25,9 @@ res.sendStatus(200);
 });
 
 async function run(cep) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({args:[
+    "--no-sandbox", "--disable-setuid-sandbox"
+  ]});
   const page = await browser.newPage();
 
   await page.goto(
