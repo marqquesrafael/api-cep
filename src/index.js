@@ -5,11 +5,19 @@ const puppeteer = require("puppeteer");
 const app = express();
 
 app.get("/BuscarCep/:cep", async (req, res) => {
+
+  try {
   var cep = req.params.cep;
-
+  
   var dados = await run(cep);
+  
+  return res.json(dados);
+  
+} catch (error) {
+  console.log(error)
+  return res.sendStatus(500)
+}
 
-  res.json(dados);
 });
 
 app.get("/", async (req, res) => {
