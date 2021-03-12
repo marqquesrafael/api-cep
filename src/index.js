@@ -52,5 +52,5 @@ app.get("/BuscarCep", function (req, res) {
 // const {PORT} = process.env
 
 app.listen(process.env.PORT, () => {
-  console.log(`escutando na porta 3000`);
+  console.log(`escutando na porta ${process.env.PORT}`);
 });
