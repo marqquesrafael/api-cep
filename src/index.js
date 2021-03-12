@@ -12,6 +12,10 @@ app.get("/BuscarCep/:cep", async (req, res) => {
   res.json(dados);
 });
 
+app.get("/", async (req, res) => {
+res.sendStatus(200);
+});
+
 async function run(cep) {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
